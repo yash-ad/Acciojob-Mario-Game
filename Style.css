@@ -42,8 +42,8 @@ body {
     position: relative;  
     /*An element with position: relative; is positioned relative to its normal position. */
     /* Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the element.  */
-    height: 600px;
-    width: 1000px;
+    height: 500px;
+    width: 900px;
     background: url("./assets/background.png");
     background-size: cover;
     background-position: bottom;
@@ -66,7 +66,7 @@ body {
      /* Css layout :- Why position absolute because its positioned to the relative to the nearest positioned ancestor 
  Respect to the parent position.  */
     position: absolute;
-    bottom: 63px;
+    bottom: 32px;
     left: 50px;
     height: 100px;
     transition: all 0.2s;
@@ -87,7 +87,7 @@ body {
     bottom: 10px;
   }
 
-  
+
 /*Mario flips his face whenever we press left arrow key in the game to flip his face */
   .flipped {
 /* 

@@ -32,8 +32,62 @@ startBtn.addEventListener("click", function () {
   let gameScore = 0;
   let gameContainerWidth = document.getElementById("game-container").offsetWidth;
   let marioPosition = 50;
+  //2. **Jump Function:**   
+//   The `jump` function is responsible for making Mario jump. We use a JavaScript `setInterval` function to repeatedly increase the vertical position (bottom style) of Mario, creating the illusion of a jump.
 
+function jump() {
+    //If  when mario is not jumping
+    if (!marioJumping) {
+      marioJumping = true;
+      //mario jumping sound
+      jumpSound.play();
+  //Mario start and end position
+      let startPos = 32;
+      let endPos = 150;
+      let speed = 5;
+  
+      let jumpInterval = setInterval(function () {
+        if (startPos < endPos) {
+          startPos += speed;
+          mario.style.bottom = startPos + "px";
+        } else {
+          clearInterval(jumpInterval);
+          fall();
+        }
+      }, 20);
+    }
+  }
+
+  //3. **Fall Function:**
     
+//   The `fall` function simulates gravity by repeatedly decreasing Mario's vertical position after the jump reaches its peak.
+function fall() {
+    let startPos = 150;
+    let endPos = 32;
+    let speed = 8;
+  
+    let fallInterval = setInterval(function () {
+      if (startPos > endPos) {
+        startPos -= speed;
+        mario.style.bottom = startPos + "px";
+      } else {
+        clearInterval(fallInterval);
+        marioJumping = false;
+      }
+    }, 20);
+  }
+
+  window.addEventListener("keydown", function (event) {
+    switch (event.key) {
+     //The spacebar has been press to jump ,space in between strings
+        case " ":
+        jump();
+        break;
+  
+    }
+  });
+  
+
 
 
 
